@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Prediction</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h2  style="float: left; display: inline;">Directional Stock prediction from News Articles</h2>
+      <a href="{% url 'prediction:config'%}" style="float: right;">
+        <i class="material-icons" style="font-size:2.5rem; color: rgb(0, 91, 160);">settings</i>
+    </a>
+      <br>
+      <br>
+      <br>
+      <form action="" method="POST" id="test_data">
+        {% csrf_token %}
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            name="news_article"
+            rows="5"
+            id="news_text"
+            placeholder="Paste news article here"
+            required="true"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="model_type">Select Model:</label>
+          <select class="form-control" id="model_type" name="model_type" required="true">
+            {% if model_config_list %} 
+            {% for model_config in model_config_list%}
+            <option value="{{model_config.api_endpoint}}">
+              {{model_config.model_name}}
+            </option>
+            {% endfor %} 
+            {% endif %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="reset" class="btn btn-secondary"/>
+      </form>
+      <br>
+      <br>
+      <br>
+
+      <div id='prediction_result'></div>
+    </div>
+    <script src="{% static 'prediction/script.js'%}"></script>
+  </body>
+</html>

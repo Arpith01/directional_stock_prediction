@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Configurations</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <div>
+            <h2 style="float: left; display: inline;">Model Configurations</h2>
+            <a href="{% url 'prediction:index'%}" style="float: right;">
+                <i class='fas fa-home' style='font-size:2rem; color:rgb(0, 91, 160)'></i>
+            </a>
+        </div>
+        <br>
+        <br>
+        <br>
+
+      {% if model_config_list %}
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Model name</th>
+            <th>API Enpoint</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for model_config in model_config_list %}
+          <tr>
+              <td>{{model_config.model_name}}</td>
+              <td>{{model_config.api_endpoint}}</td>
+              <td>{{model_config.description}}</td>
+              <td>
+                    <a href="{% url 'prediction:detail' model_config.id %}">
+                        <i class='fas fa-edit' style='font-size:1.1rem;color:rgb(0, 91, 160)'></i>
+                    </a>
+              </td>
+              <td>
+                <a href="{% url 'prediction:delete_config' model_config.id %}">
+                    <i class='fas fa-trash' style='font-size:1.1rem;color:rgb(160, 0, 0)'></i>
+                </a>
+          </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No Configurations are available.</p>
+      {% endif %}
+
+      <a href="{% url 'prediction:new_config'%}" class="btn btn-primary">Create new model</a>
+
+    </div>
+
+  </body>
+</html>

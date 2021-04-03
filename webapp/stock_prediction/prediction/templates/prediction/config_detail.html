@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configure model</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        {%if config_detail%}
+        <h2 style="float: left; display: inline;">Edit Model Configuration</h2>
+        {%else%}
+        <h2 style="float: left; display: inline;">Create new Model</h2>
+        {%endif%}
+        <a href="{% url 'prediction:config'%}" style="float: right;">
+            <i class="fa fa-close" style='font-size:2.5rem; color:rgb(160, 0, 0)'></i>
+        </a>
+      <br />
+      <br />
+      <br />
+
+      {%if config_detail%}
+      <form action="{% url 'prediction:update_config' config_detail.id %}" method="POST">
+      {%else%}
+      <form action="{% url 'prediction:create_config'  %}" method="POST">
+      {%endif%}
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="model_name">Model name: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="model_name"
+            name="model_name"
+            value="{{config_detail.model_name}}"
+            placeholder="Enter model name"
+            required="true"
+          />
+        </div>
+        <div class="form-group">
+          <label for="api_endpoint">API Endpoint: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="api_endpoint"
+            name="api_endpoint"
+            value="{{config_detail.api_endpoint}}"
+            placeholder="Enter API endpoint URL"
+            required="true"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Model description: </label>
+          <textarea
+            class="form-control"
+            name="description"
+            rows="5"
+            id="description"
+            placeholder="Describe your model..."
+            required="true"
+          >{{config_detail.description}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <input type="reset" class="btn btn-secondary"/>
+      </form>
+    </div>
+  </body>
+</html>
