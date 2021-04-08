@@ -1,0 +1,76 @@
+{
+  "rankings": {
+    "BERT": [
+        {"site": "www.businesswire.com", "accuracy": "100.0", "support": "1008"},
+        {"site": "www.yahoo.com", "accuracy": "99.59388338651527", "support": "24131"},
+        {"site": "www.investors.com", "accuracy": "97.01631701631702", "support": "4290"},
+        {"site": "news.morningstar.com", "accuracy": "94.60122699386503", "support": "815"},
+        {"site": "seekingalpha.com", "accuracy": "92.01339915373765", "support": "5672"},
+        {"site": "www.thestreet.com", "accuracy": "87.34491315136476", "support": "806"},
+        {"site": "googlejuices.com", "accuracy": "84.36018957345972", "support": "211"},
+        {"site": "finance.yahoo.com", "accuracy": "76.19047619047619", "support": "63"},
+        {"site": "www.topstocksforum.com", "accuracy": "74.13793103448276", "support": "58"},
+        {"site": "www.financialnewsusa.com", "accuracy": "50.0", "support": "52"}
+    ],
+    "SVM": [
+        {"site": "www.yahoo.com", "accuracy": "74.74617711657204", "support": "24131"},
+        {"site": "news.morningstar.com", "accuracy": "66.62576687116564", "support": "815"},
+        {"site": "finance.yahoo.com", "accuracy": "60.317460317460316", "support": "63"},
+        {"site": "www.financialnewsusa.com", "accuracy": "51.92307692307692", "support": "52"},
+        {"site": "googlejuices.com", "accuracy": "48.81516587677725", "support": "211"},
+        {"site": "www.investors.com", "accuracy": "46.08391608391609", "support": "4290"},
+        {"site": "www.topstocksforum.com", "accuracy": "37.93103448275862", "support": "58"},
+        {"site": "investingnews.com", "accuracy": "35.25872442839952", "support": "831"},
+        {"site": "seekingalpha.com", "accuracy": "33.99153737658674", "support": "5672"},
+        {"site": "www.thestreet.com", "accuracy": "28.16377171215881", "support": "806"}
+    ],
+    "LSTM": [
+        {"site": "www.yahoo.com", "accuracy": "92.29978410609642", "support": "9727"},
+        {"site": "news.morningstar.com", "accuracy": "88.75379939209726", "support": "329"},
+        {"site": "www.businesswire.com", "accuracy": "84.96420047732697", "support": "419"},
+        {"site": "finance.yahoo.com", "accuracy": "77.77777777777779", "support": "27"},
+        {"site": "www.investors.com", "accuracy": "71.36038186157518", "support": "1676"},
+        {"site": "googlejuices.com", "accuracy": "70.0", "support": "80"},
+        {"site": "seekingalpha.com", "accuracy": "69.36895439889452", "support": "2171"},
+        {"site": "www.topstocksforum.com", "accuracy": "66.66666666666666", "support": "24"},
+        {"site": "www.thestreet.com", "accuracy": "31.671554252199414", "support": "341"},
+        {"site": "investingnews.com", "accuracy": "29.47976878612717", "support": "346"}
+    ],
+    "NB": [
+        {"site": "www.businesswire.com", "accuracy": "75.7936507936508", "support": "1008"},
+        {"site": "www.thestreet.com", "accuracy": "67.99007444168734", "support": "806"},
+        {"site": "investingnews.com", "accuracy": "63.41756919374248", "support": "831"},
+        {"site": "seekingalpha.com", "accuracy": "62.60578279266573", "support": "5672"},
+        {"site": "www.topstocksforum.com", "accuracy": "58.62068965517241", "support": "58"},
+        {"site": "news.morningstar.com", "accuracy": "56.809815950920246", "support": "815"},
+        {"site": "finance.yahoo.com", "accuracy": "53.96825396825397", "support": "63"},
+        {"site": "googlejuices.com", "accuracy": "53.55450236966825", "support": "211"},
+        {"site": "www.investors.com", "accuracy": "50.74592074592075", "support": "4290"},
+        {"site": "www.financialnewsusa.com", "accuracy": "50.0", "support": "52"}
+    ],
+    "LR": [
+        {"site": "www.yahoo.com", "accuracy": "77.75061124694376", "support": "24131"},
+        {"site": "news.morningstar.com", "accuracy": "66.87116564417178", "support": "815"},
+        {"site": "finance.yahoo.com", "accuracy": "57.142857142857146", "support": "63"},
+        {"site": "www.topstocksforum.com", "accuracy": "53.44827586206897", "support": "58"},
+        {"site": "googlejuices.com", "accuracy": "52.60663507109005", "support": "211"},
+        {"site": "www.financialnewsusa.com", "accuracy": "51.92307692307692", "support": "52"},
+        {"site": "www.investors.com", "accuracy": "45.12820512820513", "support": "4290"},
+        {"site": "investingnews.com", "accuracy": "32.12996389891697", "support": "831"},
+        {"site": "seekingalpha.com", "accuracy": "30.571227080394923", "support": "5672"},
+        {"site": "www.thestreet.com", "accuracy": "25.18610421836228", "support": "806"}
+    ],
+    "BiLSTM":[
+        {"site": "www.yahoo.com", "accuracy": "92.27922278194715", "support": "9727"},
+        {"site": "news.morningstar.com", "accuracy": "91.7933130699088", "support": "329"},
+        {"site": "www.businesswire.com", "accuracy": "84.96420047732697", "support": "419"},
+        {"site": "www.investors.com", "accuracy": "71.77804295942721", "support": "1676"},
+        {"site": "seekingalpha.com", "accuracy": "71.11929986181484", "support": "2171"},
+        {"site": "googlejuices.com", "accuracy": "60.0", "support": "80"},
+        {"site": "www.topstocksforum.com", "accuracy": "58.333333333333336", "support": "24"},
+        {"site": "finance.yahoo.com", "accuracy": "55.55555555555556", "support": "27"},
+        {"site": "www.thestreet.com", "accuracy": "39.002932551319645", "support": "341"},
+        {"site": "investingnews.com", "accuracy": "22.254335260115607", "support": "346"}
+    ]
+  }
+}

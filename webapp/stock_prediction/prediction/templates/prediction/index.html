@@ -14,16 +14,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   </head>
   <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="{% url 'prediction:index'%}">Directional Stock prediction from News Articles</a>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'prediction:index'%}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'prediction:rankings'%}">Source Rankings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'prediction:config'%}">
+            Settings
+        </a>
+        </li>
+      </ul>
+    </nav>
     <div class="container">
       <br />
-      <h2  style="float: left; display: inline;">Directional Stock prediction from News Articles</h2>
+      <!-- <h2  style="float: left; display: inline;">Directional Stock prediction from News Articles</h2>
       <a href="{% url 'prediction:config'%}" style="float: right;">
         <i class="material-icons" style="font-size:2.5rem; color: rgb(0, 91, 160);">settings</i>
-    </a>
-      <br>
-      <br>
+    </a> -->
       <br>
       <form action="" method="POST" id="test_data">
         {% csrf_token %}
@@ -46,16 +61,19 @@
               {{model_config.model_name}}
             </option>
             {% endfor %} 
+            <option value="all"><b>Try all models**</b></option>
+
             {% endif %}
+
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="background-color: black; border-color: black;">Submit</button>
         <input type="reset" class="btn btn-secondary"/>
       </form>
       <br>
       <br>
       <br>
-
+      <div id="spinner" style="display: none;"><div class="spinner-border"></div></div>
       <div id='prediction_result'></div>
     </div>
     <script src="{% static 'prediction/script.js'%}"></script>

@@ -5,6 +5,7 @@ from . import views
 app_name = 'prediction'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('rankings/', views.rankings, name='rankings'),
     path('config/', views.config, name='config'),
     path('config/<int:model_id>/', views.detail, name='detail'),
     path('config/new/', views.new_config, name='new_config'),

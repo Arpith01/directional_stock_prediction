@@ -44,3 +44,7 @@ def delete_config(request, model_id):
     config_detail.delete()
     return HttpResponseRedirect(reverse('prediction:config'))
 
+def rankings(request):
+    models_configs = ModelConfig.objects.all()
+    context = {'model_config_list':models_configs}
+    return render(request, 'prediction/rankings.html', context)

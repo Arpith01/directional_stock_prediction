@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Prediction</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="/{% url 'prediction:index'%}"
+        >Directional Stock prediction from News Articles</a
+      >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'prediction:index'%}">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'prediction:rankings'%}"
+            >Source Rankings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'prediction:config'%}">Settings</a>
+        </li>
+      </ul>
+    </nav>
+    <br />
+    <div class="container">
+      <div class="form-group">
+        <label for="model_type">Select Model:</label>
+        <select
+          class="form-control"
+          id="model_type"
+          name="model_type"
+          required="true"
+        >
+          {% if model_config_list %} {% for model_config in model_config_list%}
+          <option value="{{model_config.model_name}}">
+            {{model_config.model_name}}
+          </option>
+          {% endfor %} {% endif %}
+        </select>
+      </div>
+      <div id="rankings" style="display: inherit">
+        <table class="table" id="rankings_table">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>News Source</th>
+              <th>Accuracy</th>
+              <th>Support</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="{% static 'prediction/getRankings.js'%}"></script>
+  </body>
+</html>
